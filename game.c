@@ -292,7 +292,6 @@ MOVE **getValidMovesRook(int f0, int r0, Board *b) {
 MOVE** getValidMovesKing(int f0,int r0, board *b){
 	MOVE *moves[63];
 	int current_move = 0;
-	int new_move;
 	
 	//Check 1 space above
 	moves[current_move] = mallof(sizeof(MOVE));
@@ -390,7 +389,7 @@ MOVE** getValidMovesKing(int f0,int r0, board *b){
 		current_move ++;
 	}
 	
-	
+ return moves;
 
 
 bool IsInCheck(EColor color, Board *b) {
