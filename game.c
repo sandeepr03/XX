@@ -289,6 +289,108 @@ MOVE **getValidMovesRook(int f0, int r0, Board *b) {
 	return moves;
 }
 
+MOVE** getValidMovesKing(int f0,int r0, board *b){
+	MOVE *moves[63];
+	int current_move = 0;
+	int new_move;
+	
+	//Check 1 space above
+	moves[current_move] = mallof(sizeof(MOVE));
+	moves[current_move]->f0 = f0;
+	moves[current_move]->r0 = r0;
+	moves[current_move]->f1 = f + 1;
+	moves[current_move]->r1 = r;
+	
+	if (b->board[f+1][r]->piece == EMPTY && f+1 <= 8)
+	{ 
+		current_move ++;
+	}
+	
+	//Check 1 space below
+	moves[current_move] = mallof(sizeof(MOVE));
+	moves[current_move]->f0 = f0;
+	moves[current_move]->r0 = r0;
+	moves[current_move]->f1 = f - 1;
+	moves[current_move]->r1 = r;
+	
+	if (b->board[f-1][r]->piece == EMPTY && f-1 >= 0)
+	{ 
+		current_move ++;
+	}
+	
+	//Check 1 space to the right
+	moves[current_move] = mallof(sizeof(MOVE));
+	moves[current_move]->f0 = f0;
+	moves[current_move]->r0 = r0;
+	moves[current_move]->f1 = f;
+	moves[current_move]->r1 = r + 1;
+	
+	if (b->board[f][r+1]->piece == EMPTY && r+1 <= 8)
+	{ 
+		current_move ++;
+	}
+	
+	//Check 1 space to the left
+	moves[current_move] = mallof(sizeof(MOVE));
+	moves[current_move]->f0 = f0;
+	moves[current_move]->r0 = r0;
+	moves[current_move]->f1 = f;
+	moves[current_move]->r1 = r - 1;
+	
+	if (b->board[f][r-1]->piece == EMPTY && r-1 >= 0)
+	{ 
+		current_move ++;
+	}
+	
+	//Check 1 space to the Upper Right
+	moves[current_move] = mallof(sizeof(MOVE));
+	moves[current_move]->f0 = f0;
+	moves[current_move]->r0 = r0;
+	moves[current_move]->f1 = f + 1;
+	moves[current_move]->r1 = r + 1;
+	
+	if (b->board[f+1][r+1]->piece == EMPTY && r+1 <= 8 && f+1 <= 8)
+	{ 
+		current_move ++;
+	}
+	
+	//Check 1 space to the Upper Left
+	moves[current_move] = mallof(sizeof(MOVE));
+	moves[current_move]->f0 = f0;
+	moves[current_move]->r0 = r0;
+	moves[current_move]->f1 = f - 1;
+	moves[current_move]->r1 = r + 1;
+	
+	if (b->board[f-1][r+1]->piece == EMPTY && r+1 <= 8 && f-1 >=0)
+	{ 
+		current_move ++;
+	}
+	
+	//Check 1 space to the Lower Right
+	moves[current_move] = mallof(sizeof(MOVE));
+	moves[current_move]->f0 = f0;
+	moves[current_move]->r0 = r0;
+	moves[current_move]->f1 = f + 1;
+	moves[current_move]->r1 = r - 1;
+	
+	if (b->board[f+1][r-1]->piece == EMPTY && r-1 >= 0 && f+1 <= 8)
+	{ 
+		current_move ++;
+	}
+	
+	//Check 1 space to the Lower Left
+	moves[current_move] = mallof(sizeof(MOVE));
+	moves[current_move]->f0 = f0;
+	moves[current_move]->r0 = r0;
+	moves[current_move]->f1 = f - 1;
+	moves[current_move]->r1 = r - 1;
+	
+	if (b->board[f-1][r-1]->piece == EMPTY && r-1 >= 0 && f-1 >= 0)
+	{ 
+		current_move ++;
+	}
+	
+	
 
 
 bool IsInCheck(EColor color, Board *b) {
