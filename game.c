@@ -299,6 +299,7 @@ MOVE** getValidMovesKing(int f0,int r0, board *b){
 	moves[current_move]->r0 = r0;
 	moves[current_move]->f1 = f + 1;
 	moves[current_move]->r1 = r;
+	b->board[f+1][r]->hl = 1;
 	
 	if (b->board[f+1][r]->piece == EMPTY && f+1 <= 8)
 	{ 
@@ -311,6 +312,7 @@ MOVE** getValidMovesKing(int f0,int r0, board *b){
 	moves[current_move]->r0 = r0;
 	moves[current_move]->f1 = f - 1;
 	moves[current_move]->r1 = r;
+	b->board[f-1][r]->hl = 1;
 	
 	if (b->board[f-1][r]->piece == EMPTY && f-1 >= 0)
 	{ 
@@ -323,6 +325,7 @@ MOVE** getValidMovesKing(int f0,int r0, board *b){
 	moves[current_move]->r0 = r0;
 	moves[current_move]->f1 = f;
 	moves[current_move]->r1 = r + 1;
+	b->board[f][r+1]->hl = 1;
 	
 	if (b->board[f][r+1]->piece == EMPTY && r+1 <= 8)
 	{ 
@@ -335,6 +338,7 @@ MOVE** getValidMovesKing(int f0,int r0, board *b){
 	moves[current_move]->r0 = r0;
 	moves[current_move]->f1 = f;
 	moves[current_move]->r1 = r - 1;
+	b->board[f][r-1]->hl = 1;
 	
 	if (b->board[f][r-1]->piece == EMPTY && r-1 >= 0)
 	{ 
@@ -347,6 +351,7 @@ MOVE** getValidMovesKing(int f0,int r0, board *b){
 	moves[current_move]->r0 = r0;
 	moves[current_move]->f1 = f + 1;
 	moves[current_move]->r1 = r + 1;
+	b->board[f+1][r+1]->hl = 1;
 	
 	if (b->board[f+1][r+1]->piece == EMPTY && r+1 <= 8 && f+1 <= 8)
 	{ 
@@ -359,6 +364,7 @@ MOVE** getValidMovesKing(int f0,int r0, board *b){
 	moves[current_move]->r0 = r0;
 	moves[current_move]->f1 = f - 1;
 	moves[current_move]->r1 = r + 1;
+	b->board[f-1][r+1]->hl = 1;
 	
 	if (b->board[f-1][r+1]->piece == EMPTY && r+1 <= 8 && f-1 >=0)
 	{ 
@@ -371,6 +377,7 @@ MOVE** getValidMovesKing(int f0,int r0, board *b){
 	moves[current_move]->r0 = r0;
 	moves[current_move]->f1 = f + 1;
 	moves[current_move]->r1 = r - 1;
+	b->board[f+1][r-1]->hl = 1;
 	
 	if (b->board[f+1][r-1]->piece == EMPTY && r-1 >= 0 && f+1 <= 8)
 	{ 
@@ -383,6 +390,7 @@ MOVE** getValidMovesKing(int f0,int r0, board *b){
 	moves[current_move]->r0 = r0;
 	moves[current_move]->f1 = f - 1;
 	moves[current_move]->r1 = r - 1;
+	b->board[f-1][r-1]->hl = 1;
 	
 	if (b->board[f-1][r-1]->piece == EMPTY && r-1 >= 0 && f-1 >= 0)
 	{ 
