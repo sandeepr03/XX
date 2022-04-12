@@ -3,6 +3,16 @@
 #include <wchar.h>
 #include <stdbool.h>
 
+
+
+
+
+
+
+
+
+
+
 typedef enum {
 	EMPTY,
 	PAWN,
